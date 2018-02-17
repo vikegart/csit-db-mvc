@@ -12,5 +12,7 @@ namespace Entities
 
         public byte[] Src { get; set; }
 
+        public String Type { get; set; }
+
     }
 }
