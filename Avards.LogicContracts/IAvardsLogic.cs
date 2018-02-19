@@ -9,11 +9,11 @@ namespace Avards.LogicContracts
 {
     public interface IAvardsLogic
     {
-        IEnumerable<Avard> GetAll();
+        IEnumerable<Award> GetAll();
 
-        Avard GetById(int id);
+        Award GetById(int id);
 
-        bool Add(Avard avard);
+        bool Add(Award avard);
 
         bool Delete(int id);
     }
