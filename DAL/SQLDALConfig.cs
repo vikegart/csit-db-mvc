@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    class SQLDALConfig
+    public class SQLDALConfig
     {
         public static string ConnectionString { get; } = ConfigurationManager.ConnectionStrings["DataAcses"].ConnectionString;
     }
