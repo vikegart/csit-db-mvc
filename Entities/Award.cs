@@ -8,11 +8,11 @@ namespace Entities
 {
     public class Award
     {
-        public int Id { get; set; }
+        public int ID { get; set; }
 
-        public String Title { get; set; }
+        public string Title { get; set; }
 
-        public String Description { get; set; }
+        public string Description { get; set; }
 
     }
 }

@@ -26,7 +26,7 @@ namespace Avards.CoreLogic
             }
 
 
-            user.Id = ++maxId; //TODO: make normal data
+            user.ID = ++maxId; //TODO: make normal data
             user.Name = "Hardcoded Name";
             user.Birthdate = new DateTime();
 

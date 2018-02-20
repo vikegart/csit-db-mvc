@@ -128,13 +128,13 @@
     <Folder Include="Views\Avard\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Avards.LogicContracts\Avards.LogicContracts.csproj">
+    <ProjectReference Include="..\Avards.LogicContracts\Awards.LogicContracts.csproj">
       <Project>{c60de701-9e9a-4051-9a0f-22907b5509a7}</Project>
-      <Name>Avards.LogicContracts</Name>
+      <Name>Awards.LogicContracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Entities\Avards.Entities.csproj">
+    <ProjectReference Include="..\Entities\Awards.Entities.csproj">
       <Project>{e0c5fe92-41b3-440d-b437-17b2c15de0af}</Project>
-      <Name>Avards.Entities</Name>
+      <Name>Awards.Entities</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

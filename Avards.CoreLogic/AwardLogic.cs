@@ -1,4 +1,4 @@
-﻿using Avards.LogicContracts;
+﻿using Awards.LogicContracts;
 using Entities;
 using System;
 using System.Collections.Generic;
@@ -6,14 +6,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Avards.CoreLogic
+namespace Awards.CoreLogic
 {
-    public class AvardLogic : IAvardsLogic
+    public class AwardLogic : IAwardsLogic
     {
-        private static List<Avard> avards = new List<Avard>();
+        private static List<Award> avards = new List<Award>();
         private int maxId = 0;
 
-        public bool Add(Avard avard)
+        public bool Add(Award avard)
         {
             if (avard == null)
             {
@@ -30,7 +30,7 @@ namespace Avards.CoreLogic
                 throw new ArgumentException("Title");
             }
 
-            avard.Id = ++maxId;
+            avard.ID = ++maxId;
             avard.Title = "Hardcoded Test";
             avard.Description = "Hardcoded Description gg";
             avards.Add(avard);
@@ -51,14 +51,14 @@ namespace Avards.CoreLogic
             return false;
         }
 
-        public IEnumerable<Avard> GetAll()
+        public IEnumerable<Award> GetAll()
         {
             return avards.Select(a => a);
         }
 
-        public Avard GetById(int id)
+        public Award GetById(int id)
         {
-            return avards.SingleOrDefault(a => a.Id == id);
+            return avards.SingleOrDefault(a => a.ID == id);
         }
     }
 }

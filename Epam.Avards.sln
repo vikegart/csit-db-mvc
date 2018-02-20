@@ -3,15 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avards.WebApp", "Epam.Avards\Avards.WebApp.csproj", "{207BD9CA-9C64-4B4A-9F0F-5CA66590E0A4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Awards.WebApp", "Epam.Avards\Awards.WebApp.csproj", "{207BD9CA-9C64-4B4A-9F0F-5CA66590E0A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avards.Entities", "Entities\Avards.Entities.csproj", "{E0C5FE92-41B3-440D-B437-17B2C15DE0AF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Awards.Entities", "Entities\Awards.Entities.csproj", "{E0C5FE92-41B3-440D-B437-17B2C15DE0AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avards.LogicContracts", "Avards.LogicContracts\Avards.LogicContracts.csproj", "{C60DE701-9E9A-4051-9A0F-22907B5509A7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Awards.LogicContracts", "Avards.LogicContracts\Awards.LogicContracts.csproj", "{C60DE701-9E9A-4051-9A0F-22907B5509A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avards.CoreLogic", "Avards.CoreLogic\Avards.CoreLogic.csproj", "{F6A5723F-4918-48F4-81B7-3DD5737F1749}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Awards.CoreLogic", "Avards.CoreLogic\Awards.CoreLogic.csproj", "{F6A5723F-4918-48F4-81B7-3DD5737F1749}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IDAL", "IDAL\IDAL.csproj", "{222E1694-A16D-4F4E-B056-231003298FA7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BusinessLayer", "BusinessLayer", "{162EB0E3-AE54-4751-AA82-37AB39CB9DFB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Entities", "Entities", "{9574C079-5578-4455-8597-770D4B00A8CB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAcsessLayer", "DataAcsessLayer", "{5E314AD1-D7C0-4836-9598-59F019947224}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PresentLayer", "PresentLayer", "{9D77070B-44F1-4217-B98A-904C150106EB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{494EB6FE-A390-4EEF-B7C2-74B2D00C1DF5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,6 +52,13 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{207BD9CA-9C64-4B4A-9F0F-5CA66590E0A4} = {9D77070B-44F1-4217-B98A-904C150106EB}
+		{E0C5FE92-41B3-440D-B437-17B2C15DE0AF} = {9574C079-5578-4455-8597-770D4B00A8CB}
+		{C60DE701-9E9A-4051-9A0F-22907B5509A7} = {162EB0E3-AE54-4751-AA82-37AB39CB9DFB}
+		{F6A5723F-4918-48F4-81B7-3DD5737F1749} = {162EB0E3-AE54-4751-AA82-37AB39CB9DFB}
+		{222E1694-A16D-4F4E-B056-231003298FA7} = {5E314AD1-D7C0-4836-9598-59F019947224}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C666358D-A618-4CE3-9134-E65E1E68CEC7}

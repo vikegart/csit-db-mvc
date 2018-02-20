@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Avards.LogicContracts
+namespace Awards.LogicContracts
 {
-    public interface IAvardsLogic
+    public interface IAwardsLogic
     {
         IEnumerable<Award> GetAll();
 
