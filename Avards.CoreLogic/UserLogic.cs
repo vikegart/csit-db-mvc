@@ -10,35 +10,27 @@ namespace Avards.CoreLogic
 {
     class UserLogic : IUsersLogic
     {
-        private static List<User> users = new List<User>();
-        private int maxId = 0;
-
-        public bool Add(User user)
+        public void AddImage(Image image)
         {
-            if (user == null)
-            {
-                throw new ArgumentNullException(nameof(user));
-            }
-
-            if (string.IsNullOrWhiteSpace(user.Name))
-            {
-                throw new ArgumentException("Name");
-            }
-
-
-            user.ID = ++maxId; //TODO: make normal data
-            user.Name = "Hardcoded Name";
-            user.Birthdate = new DateTime();
-
-            var today = DateTime.Today;
-            var age = today.Year - user.Birthdate.Year;
-
-            users.Add(user);
-
-            return true;
+            throw new NotImplementedException();
         }
 
-        public bool Delete(int id)
+        public int Create(User user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteImage(int idUser)
+        {
+            throw new NotImplementedException();
+        }
+
+        public byte[] Download()
         {
             throw new NotImplementedException();
         }
@@ -49,6 +41,36 @@ namespace Avards.CoreLogic
         }
 
         public User GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<User> GetByLetterName(string letterName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public User GetByName(string name)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<User> GetByPartName(string partName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Image GetImageByUser(int idUser, int newWidth, int maxHeight, bool reduceOnly)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateImage(int idUser, Image newImage)
         {
             throw new NotImplementedException();
         }

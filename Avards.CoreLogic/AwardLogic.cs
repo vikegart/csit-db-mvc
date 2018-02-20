@@ -10,55 +10,74 @@ namespace Awards.CoreLogic
 {
     public class AwardLogic : IAwardsLogic
     {
-        private static List<Award> avards = new List<Award>();
-        private int maxId = 0;
-
-        public bool Add(Award avard)
+        public void AddImage(Image image)
         {
-            if (avard == null)
-            {
-                throw new ArgumentNullException(nameof(avard));
-            }
-
-            if (string.IsNullOrWhiteSpace(avard.Description))
-            {
-                throw new ArgumentException("Description");
-            }
-
-            if (string.IsNullOrWhiteSpace(avard.Title))
-            {
-                throw new ArgumentException("Title");
-            }
-
-            avard.ID = ++maxId;
-            avard.Title = "Hardcoded Test";
-            avard.Description = "Hardcoded Description gg";
-            avards.Add(avard);
-
-            return true;
+            throw new NotImplementedException();
         }
 
-        public bool Delete(int id)
+        public void CancelAwardToUser(int idUser, int idAward)
         {
-            var avard = this.GetById(id);
+            throw new NotImplementedException();
+        }
 
-            if (avard != null)
-            {
-                avards.Remove(avard);
-                return true;
-            }
+        public int Create(Award award)
+        {
+            throw new NotImplementedException();
+        }
 
-            return false;
+        public void Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteImage(int idUser)
+        {
+            throw new NotImplementedException();
         }
 
         public IEnumerable<Award> GetAll()
         {
-            return avards.Select(a => a);
+            throw new NotImplementedException();
         }
 
-        public Award GetById(int id)
+        public Award GetByID(int id)
         {
-            return avards.SingleOrDefault(a => a.ID == id);
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Award> GetByIdUser(int idUser)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Award GetByName(string name)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Award> GetFreeAwards(int idUser)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Image GetImageByAward(int idUser, int newWidth, int maxHeight, bool reduceOnly)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetAwardToUser(int idUser, int idAward)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Award award)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateImage(int idAward, Image newImage)
+        {
+            throw new NotImplementedException();
         }
     }
 }

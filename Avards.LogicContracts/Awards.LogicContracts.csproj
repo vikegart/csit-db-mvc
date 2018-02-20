@@ -7,8 +7,8 @@
     <ProjectGuid>{C60DE701-9E9A-4051-9A0F-22907B5509A7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Avards.LogicContracts</RootNamespace>
-    <AssemblyName>Avards.LogicContracts</AssemblyName>
+    <RootNamespace>Awards.LogicContracts</RootNamespace>
+    <AssemblyName>Awards.LogicContracts</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

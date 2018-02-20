@@ -11,10 +11,21 @@ namespace Awards.LogicContracts
     {
         IEnumerable<Award> GetAll();
 
-        Award GetById(int id);
+        Award GetByID(int id);
+        Award GetByName(string name);
+        IEnumerable<Award> GetByIdUser(int idUser);
+        IEnumerable<Award> GetFreeAwards(int idUser);
 
-        bool Add(Award avard);
+        int Create(Award award);
+        void Delete(int id);
+        void Update(Award award);
 
-        bool Delete(int id);
+        void SetAwardToUser(int idUser, int idAward);
+        void CancelAwardToUser(int idUser, int idAward);
+
+        void AddImage(Image image);
+        Image GetImageByAward(int idUser, int newWidth, int maxHeight, bool reduceOnly);
+        void DeleteImage(int idUser);
+        void UpdateImage(int idAward, Image newImage);
     }
 }

@@ -10,11 +10,20 @@ namespace Avards.LogicContracts
     public interface IUsersLogic
     {
         IEnumerable<User> GetAll();
-
         User GetById(int id);
+        User GetByName(string name);
 
-        bool Add(User user);
+        IEnumerable<User> GetByLetterName(string letterName);
+        IEnumerable<User> GetByPartName(string partName);
 
-        bool Delete(int id);
+        int Create(User user);
+        void Delete(int id);
+        void Update(int id);
+
+        void AddImage(Image image);
+        Image GetImageByUser(int idUser, int newWidth, int maxHeight, bool reduceOnly);
+        void DeleteImage(int idUser);
+        void UpdateImage(int idUser, Image newImage);
+        byte[] Download();
     }
 }
