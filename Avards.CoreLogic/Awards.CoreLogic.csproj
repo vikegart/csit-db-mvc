@@ -49,9 +49,17 @@
       <Project>{c60de701-9e9a-4051-9a0f-22907b5509a7}</Project>
       <Name>Awards.LogicContracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{07adcf31-f0c5-4fd4-92dd-60446992aa26}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Entities\Awards.Entities.csproj">
       <Project>{e0c5fe92-41b3-440d-b437-17b2c15de0af}</Project>
       <Name>Awards.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IDAL\IDAL.csproj">
+      <Project>{222e1694-a16d-4f4e-b056-231003298fa7}</Project>
+      <Name>IDAL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    class UserImageData : IUserImageData
+    public class UserImageData : IUserImageData
     {
         private string connectString = SQLDALConfig.ConnectionString;
 

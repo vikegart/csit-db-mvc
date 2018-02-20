@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    class AwardData : IAwardData
+    public class AwardData : IAwardData
     {
         private string connectString = SQLDALConfig.ConnectionString;
 
