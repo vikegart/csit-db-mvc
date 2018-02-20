@@ -18,7 +18,7 @@ namespace Awards.LogicContracts
 
         int Create(User user);
         void Delete(int id);
-        void Update(int id);
+        void Update(User user);
 
         void AddImage(Image image);
         Image GetImageByUser(int idUser, int newWidth, int maxHeight, bool reduceOnly);

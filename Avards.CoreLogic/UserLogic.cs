@@ -46,64 +46,71 @@ namespace Awards.CoreLogic
             return Encoding.Unicode.GetBytes(text.ToString());
         }
 
-        public void AddImage(Image image)
-        {
-            throw new NotImplementedException();
-        }
-
         public int Create(User user)
         {
-            throw new NotImplementedException();
+            return new UserData().AddUser(user);
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            new UserImageData().DeleteUserImage(id);
+            new UserData().DeleteUser(id);
         }
 
-        public void DeleteImage(int idUser)
+        public void Update(User user)
         {
-            throw new NotImplementedException();
+           new UserData().UpdateUser(user);
         }
 
         public IEnumerable<User> GetAll()
         {
-            throw new NotImplementedException();
-        }
-
-        public User GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<User> GetByLetterName(string letterName)
-        {
-            throw new NotImplementedException();
+            return new UserData().GetUsers().ToList();
         }
 
         public User GetByName(string name)
         {
-            throw new NotImplementedException();
+            return new UserData().GetUserByName(name);
         }
 
-        public IEnumerable<User> GetByPartName(string partName)
+        public void AddImage(Image image)
         {
-            throw new NotImplementedException();
+            new UserImageData().AddUserImage(image);
         }
 
         public Image GetImageByUser(int idUser, int newWidth, int maxHeight, bool reduceOnly)
         {
-            throw new NotImplementedException();
+            Image image = new UserImageData().GetImageByUser(idUser);
+            if (image != null)
+            {
+                //TODO: добавить работу с картинкой
+                return image;
+            }
+            return null;
         }
 
-        public void Update(int id)
+        public void DeleteImage(int idUser)
         {
-            throw new NotImplementedException();
+            new UserImageData().DeleteUserImage(idUser);
         }
 
         public void UpdateImage(int idUser, Image newImage)
         {
-            throw new NotImplementedException();
+            new UserImageData().Update(idUser, newImage);
+        }
+
+        public IEnumerable<User> GetByLetterName(string letterName)
+        {
+            return new UserData().GetUsersByLetterName(letterName).ToList();
+        }
+
+        public IEnumerable<User> GetByPartName(string partName)
+        {
+            return new UserData().GetUsersByPartName(partName).ToList();
+        }
+
+        public User GetById(int id)
+        {
+            return new UserData().GetUserById(id);
         }
     }
 }
