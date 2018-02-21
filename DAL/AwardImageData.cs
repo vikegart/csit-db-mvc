@@ -50,9 +50,9 @@ namespace DAL
                     command.ExecuteNonQuery();
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                throw new ArgumentException("AddAwardImage");
+                throw ex;
             }
         }
 
@@ -70,9 +70,9 @@ namespace DAL
                     command.ExecuteNonQuery();
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                throw new ArgumentException("DeleteAwardImage");
+                throw ex;
             }
         }
 
@@ -95,9 +95,9 @@ namespace DAL
                     return null;
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                throw new ArgumentException("GetImageByAward");
+                throw ex;
             }
         }
 
@@ -109,9 +109,9 @@ namespace DAL
                 newImage.Id_Owner = idAward;
                 AddAwardImage(newImage);
             }
-            catch
+            catch (Exception ex)
             {
-                throw new ArgumentException("Update");
+                throw ex;
             }
         }
     }

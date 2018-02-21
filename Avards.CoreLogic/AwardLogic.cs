@@ -1,4 +1,6 @@
-﻿using Awards.LogicContracts;
+﻿using Avards.CoreLogic;
+using Awards.LogicContracts;
+using DAL;
 using Entities;
 using System;
 using System.Collections.Generic;
@@ -12,72 +14,89 @@ namespace Awards.CoreLogic
     {
         public void AddImage(Image image)
         {
-            throw new NotImplementedException();
+            new AwardImageData().AddAwardImage(image);
         }
 
         public void CancelAwardToUser(int idUser, int idAward)
         {
-            throw new NotImplementedException();
+            new AwardData().CancelAwardToUser(idUser, idAward);
         }
 
         public int Create(Award award)
         {
-            throw new NotImplementedException();
+            return new AwardData().AddAward(award);
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            DeleteImage(id);
+            new AwardData().DeleteAward(id);
         }
 
-        public void DeleteImage(int idUser)
+        public void DeleteImage(int idAward)
         {
-            throw new NotImplementedException();
+            new AwardImageData().DeleteAwardImage(idAward);
         }
 
         public IEnumerable<Award> GetAll()
         {
-            throw new NotImplementedException();
+            return new AwardData().GetAwards().ToList();
         }
 
         public Award GetByID(int id)
         {
-            throw new NotImplementedException();
+            return new AwardData().GetAwardById(id);
         }
 
         public IEnumerable<Award> GetByIdUser(int idUser)
         {
-            throw new NotImplementedException();
+            return new AwardData().GetAwardsByUser(idUser).ToList();
+        }
+
+        public IEnumerable<Award> GetByLetterName(string letterName)
+        {
+            return new AwardData().GetAwardByLetterName(letterName).ToList();
         }
 
         public Award GetByName(string name)
         {
-            throw new NotImplementedException();
+            return new AwardData().GetAwardByName(name);
+        }
+
+        public IEnumerable<Award> GetByPartName(string partName)
+        {
+            return new AwardData().GetAwardByPartName(partName).ToList();
         }
 
         public IEnumerable<Award> GetFreeAwards(int idUser)
         {
-            throw new NotImplementedException();
+            return new AwardData().GetFreeAwards(idUser).ToList();
         }
 
-        public Image GetImageByAward(int idUser, int newWidth, int maxHeight, bool reduceOnly)
+        public Image GetImageByAward(int idAward, int newWidth, int maxHeight, bool reduceOnly)
         {
-            throw new NotImplementedException();
+            Image image = new AwardImageData().GetImageByAward(idAward);
+            if (image != null)
+            {
+                image.Byte = ImageWorker.ResizeImage(image.Byte, newWidth, maxHeight, reduceOnly);
+                return image;
+            }
+            return null;
         }
 
         public void SetAwardToUser(int idUser, int idAward)
         {
-            throw new NotImplementedException();
+            new AwardData().SetAwardToUser(idUser, idAward);
         }
 
         public void Update(Award award)
         {
-            throw new NotImplementedException();
+            new AwardData().UpdateAward(award);
         }
 
         public void UpdateImage(int idAward, Image newImage)
         {
-            throw new NotImplementedException();
+            new AwardImageData().Update(idAward, newImage);
         }
     }
 }

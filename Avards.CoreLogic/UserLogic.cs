@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Avards.CoreLogic;
 
 namespace Awards.CoreLogic
 {
@@ -82,7 +83,7 @@ namespace Awards.CoreLogic
             Image image = new UserImageData().GetImageByUser(idUser);
             if (image != null)
             {
-                //TODO: добавить работу с картинкой
+                image.Byte = ImageWorker.ResizeImage(image.Byte, newWidth, maxHeight, reduceOnly);
                 return image;
             }
             return null;

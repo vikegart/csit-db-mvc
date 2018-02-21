@@ -25,9 +25,9 @@ namespace DAL
                     Description = (string)reader["Description"]
                 };
             }
-            catch
+            catch (Exception ex)
             {
-                throw new ArgumentException("ReadAward");
+                throw ex;
             }
         }
         public int AddAward(Award award)
@@ -47,9 +47,9 @@ namespace DAL
                 }
                 return Convert.ToInt32(idAward);
             }
-            catch
+            catch (Exception ex)
             {
-                throw new ArgumentException("AddAward");
+                throw ex;
             }
         }
 
@@ -68,9 +68,9 @@ namespace DAL
                     command.ExecuteNonQuery();
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                throw new ArgumentException("AddAward");
+                throw ex;
             }
         }
 
@@ -88,9 +88,9 @@ namespace DAL
                     command.ExecuteNonQuery();
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                throw new ArgumentException("DeleteAward");
+                throw ex;
             }
         }
 
@@ -113,9 +113,9 @@ namespace DAL
                     return null;
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                throw new ArgumentException("GetAwardById");
+                throw ex;
             }
         }
 
@@ -156,9 +156,9 @@ namespace DAL
                     return null;
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                throw new ArgumentException("GetAwardByName");
+                throw ex;
             }
         }
 
@@ -246,9 +246,9 @@ namespace DAL
                     command.ExecuteNonQuery();
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                throw new ArgumentException("SetAwardToUser");
+                throw ex;
             }
         }
 
@@ -268,9 +268,9 @@ namespace DAL
                     command.ExecuteNonQuery();
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                throw new ArgumentException("UpdateAward");
+                throw ex;
             }
         }
     }

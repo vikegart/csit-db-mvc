@@ -49,9 +49,9 @@ namespace DAL
                     command.ExecuteNonQuery();
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                throw new ArgumentException("AddUserImage");
+                throw ex;
             }
         }
 
@@ -69,9 +69,9 @@ namespace DAL
                     command.ExecuteNonQuery();
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                throw new ArgumentException("DeleteUserImage");
+                throw ex;
             }
         }
 
@@ -94,9 +94,9 @@ namespace DAL
                     return null;
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                throw new ArgumentException("GetImageByUser");
+                throw ex;
             }
         }
 
@@ -108,9 +108,9 @@ namespace DAL
                 newImage.Id_Owner = idUser;
                 AddUserImage(newImage);
             }
-            catch
+            catch (Exception ex)
             {
-                throw new ArgumentException("Update");
+                throw ex;
             }
         }
     }

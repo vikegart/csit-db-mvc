@@ -14,7 +14,7 @@ namespace DAL
     {
         private string connectString = SQLDALConfig.ConnectionString;
 
-        private static User ReadUser(SqlDataReader reader)
+        private  User ReadUser(SqlDataReader reader)
         {
             try
             {
@@ -25,9 +25,9 @@ namespace DAL
                     Birthdate = (DateTime)reader["Birthdate"]
                 };
             }
-            catch
+            catch (Exception ex)
             {
-                throw new ArgumentException("ReadUser");
+                throw ex;
             }
         }
 
@@ -48,9 +48,9 @@ namespace DAL
                 }
                 return Convert.ToInt32(idUser);
             }
-            catch
+            catch(Exception ex)
             {
-                throw new ArgumentException("AddUser");
+                throw ex;
             }
         }
 
@@ -68,9 +68,9 @@ namespace DAL
                     command.ExecuteNonQuery();
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                throw new ArgumentException("DeleteUser");
+                throw ex;
             }
         }
 
@@ -93,9 +93,9 @@ namespace DAL
                     return null;
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                throw new ArgumentException("GetUserById");
+                throw ex;
             }
         }
 
@@ -118,9 +118,9 @@ namespace DAL
                     return null;
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                throw new ArgumentException("GetUserByName");
+                throw ex;
             }
         }
 
@@ -192,9 +192,9 @@ namespace DAL
                     command.ExecuteNonQuery();
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                throw new ArgumentException("UpdateUser");
+                throw ex;
             }
         }
     }
