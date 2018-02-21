@@ -11,11 +11,11 @@ using Avards.CoreLogic;
 
 namespace Awards.CoreLogic
 {
-    class UserLogic : IUsersLogic
+    public class UserLogic : IUsersLogic
     {
         public byte[] Download()
         {
-            List<User> users = new UserData().GetUsers().ToList();
+            List<User> users = ProviderDAL.UserDAO.GetUsers().ToList();
             List<Award> awardsByUser;
             StringBuilder text = new StringBuilder();
             foreach (User user in users)
@@ -23,8 +23,11 @@ namespace Awards.CoreLogic
                 text.Append("Пользователь ");
                 text.Append(user.Name);
                 text.Append(" ");
+                int age = Helpers.AgeCounter.GetAgeByBirthdate(user.Birthdate); //TODO: совпадают ли типы?
+                text.Append(age);
+                text.Append(" ");
 
-                awardsByUser = new AwardData().GetAwardsByUser(user.ID).ToList();
+                awardsByUser = new AwardDAO().GetAwardsByUser(user.ID).ToList();
                 int count = awardsByUser.Count;
                 if (count == 0)
                 {
@@ -49,38 +52,38 @@ namespace Awards.CoreLogic
 
         public int Create(User user)
         {
-            return new UserData().AddUser(user);
+            return ProviderDAL.UserDAO.AddUser(user);
         }
 
         public void Delete(int id)
         {
-            new UserImageData().DeleteUserImage(id);
-            new UserData().DeleteUser(id);
+            ProviderDAL.UserImageDAO.DeleteUserImage(id);
+            ProviderDAL.UserDAO.DeleteUser(id);
         }
 
         public void Update(User user)
         {
-           new UserData().UpdateUser(user);
+            ProviderDAL.UserDAO.UpdateUser(user);
         }
 
         public IEnumerable<User> GetAll()
         {
-            return new UserData().GetUsers().ToList();
+            return ProviderDAL.UserDAO.GetUsers().ToList();
         }
 
         public User GetByName(string name)
         {
-            return new UserData().GetUserByName(name);
+            return ProviderDAL.UserDAO.GetUserByName(name);
         }
 
         public void AddImage(Image image)
         {
-            new UserImageData().AddUserImage(image);
+            ProviderDAL.UserImageDAO.AddUserImage(image);
         }
 
         public Image GetImageByUser(int idUser, int newWidth, int maxHeight, bool reduceOnly)
         {
-            Image image = new UserImageData().GetImageByUser(idUser);
+            Image image = new UserImageDAO().GetImageByUser(idUser);
             if (image != null)
             {
                 image.Byte = ImageWorker.ResizeImage(image.Byte, newWidth, maxHeight, reduceOnly);
@@ -91,27 +94,27 @@ namespace Awards.CoreLogic
 
         public void DeleteImage(int idUser)
         {
-            new UserImageData().DeleteUserImage(idUser);
+            ProviderDAL.UserImageDAO.DeleteUserImage(idUser);
         }
 
         public void UpdateImage(int idUser, Image newImage)
         {
-            new UserImageData().Update(idUser, newImage);
+            ProviderDAL.UserImageDAO.Update(idUser, newImage);
         }
 
         public IEnumerable<User> GetByLetterName(string letterName)
         {
-            return new UserData().GetUsersByLetterName(letterName).ToList();
+            return ProviderDAL.UserDAO.GetUsersByLetterName(letterName).ToList();
         }
 
         public IEnumerable<User> GetByPartName(string partName)
         {
-            return new UserData().GetUsersByPartName(partName).ToList();
+            return ProviderDAL.UserDAO.GetUsersByPartName(partName).ToList();
         }
 
         public User GetById(int id)
         {
-            return new UserData().GetUserById(id);
+            return ProviderDAL.UserDAO.GetUserById(id);
         }
     }
 }

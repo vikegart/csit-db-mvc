@@ -10,26 +10,9 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class UserData : IUserData
+    public class UserDAO : IUserData
     {
         private string connectString = SQLDALConfig.ConnectionString;
-
-        private  User ReadUser(SqlDataReader reader)
-        {
-            try
-            {
-                return new User
-                {
-                    ID = (int)reader["ID"],
-                    Name = (string)reader["Name"],
-                    Birthdate = (DateTime)reader["Birthdate"]
-                };
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
 
         public int AddUser(User user)
         {
@@ -191,6 +174,23 @@ namespace DAL
                     con.Open();
                     command.ExecuteNonQuery();
                 }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private User ReadUser(SqlDataReader reader)
+        {
+            try
+            {
+                return new User
+                {
+                    ID = (int)reader["ID"],
+                    Name = (string)reader["Name"],
+                    Birthdate = (DateTime)reader["Birthdate"]
+                };
             }
             catch (Exception ex)
             {

@@ -10,28 +10,10 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class UserImageData : IUserImageData
+    public class UserImageDAO : IUserImageData
     {
         private string connectString = SQLDALConfig.ConnectionString;
 
-        private static Image ReadImage(SqlDataReader reader)
-        {
-            try
-            {
-                return new Image
-                {
-                    Id = (int)reader["ID"],
-                    Name = (string)reader["Name"],
-                    Byte = (byte[])reader["Byte"],
-                    Type = (string)reader["Type"],
-                    Id_Owner = (int)reader["id_user"]
-                };
-            }
-            catch
-            {
-                return null;
-            }
-        }
         public void AddUserImage(Image image)
         {
             try
@@ -111,6 +93,25 @@ namespace DAL
             catch (Exception ex)
             {
                 throw ex;
+            }
+        }
+
+        private static Image ReadImage(SqlDataReader reader)
+        {
+            try
+            {
+                return new Image
+                {
+                    Id = (int)reader["ID"],
+                    Name = (string)reader["Name"],
+                    Byte = (byte[])reader["Byte"],
+                    Type = (string)reader["Type"],
+                    Id_Owner = (int)reader["id_user"]
+                };
+            }
+            catch
+            {
+                return null;
             }
         }
     }

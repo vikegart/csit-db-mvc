@@ -10,26 +10,10 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class AwardData : IAwardData
+    public class AwardDAO : IAwardData
     {
         private string connectString = SQLDALConfig.ConnectionString;
-
-        private static Award ReadAward(SqlDataReader reader)
-        {
-            try
-            {
-                return new Award
-                {
-                    ID = (int)reader["ID"],
-                    Title = (string)reader["Title"],
-                    Description = (string)reader["Description"]
-                };
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
+        
         public int AddAward(Award award)
         {
             try
@@ -267,6 +251,23 @@ namespace DAL
                     con.Open();
                     command.ExecuteNonQuery();
                 }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private static Award ReadAward(SqlDataReader reader)
+        {
+            try
+            {
+                return new Award
+                {
+                    ID = (int)reader["ID"],
+                    Title = (string)reader["Title"],
+                    Description = (string)reader["Description"]
+                };
             }
             catch (Exception ex)
             {

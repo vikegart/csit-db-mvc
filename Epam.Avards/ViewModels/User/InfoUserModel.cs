@@ -16,6 +16,6 @@ namespace Epam.Avards.ViewModels.User
         public DateTime Birthdate { get; set; }
         public int Age { get; set; }
 
-        public List<Entities.Award> listAwars { get; set; }
+        public List<Entities.Award> ListAwars { get; set; }
     }
 }

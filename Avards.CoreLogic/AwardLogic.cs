@@ -14,68 +14,68 @@ namespace Awards.CoreLogic
     {
         public void AddImage(Image image)
         {
-            new AwardImageData().AddAwardImage(image);
+            ProviderDAL.AwardImageDAO.AddAwardImage(image);
         }
 
         public void CancelAwardToUser(int idUser, int idAward)
         {
-            new AwardData().CancelAwardToUser(idUser, idAward);
+            ProviderDAL.AwardDAO.CancelAwardToUser(idUser, idAward);
         }
 
         public int Create(Award award)
         {
-            return new AwardData().AddAward(award);
+            return ProviderDAL.AwardDAO.AddAward(award);
         }
 
         public void Delete(int id)
         {
             DeleteImage(id);
-            new AwardData().DeleteAward(id);
+            ProviderDAL.AwardDAO.DeleteAward(id);
         }
 
         public void DeleteImage(int idAward)
         {
-            new AwardImageData().DeleteAwardImage(idAward);
+            ProviderDAL.AwardImageDAO.DeleteAwardImage(idAward);
         }
 
         public IEnumerable<Award> GetAll()
         {
-            return new AwardData().GetAwards().ToList();
+            return ProviderDAL.AwardDAO.GetAwards().ToList();
         }
 
         public Award GetByID(int id)
         {
-            return new AwardData().GetAwardById(id);
+            return ProviderDAL.AwardDAO.GetAwardById(id);
         }
 
         public IEnumerable<Award> GetByIdUser(int idUser)
         {
-            return new AwardData().GetAwardsByUser(idUser).ToList();
+            return ProviderDAL.AwardDAO.GetAwardsByUser(idUser).ToList();
         }
 
         public IEnumerable<Award> GetByLetterName(string letterName)
         {
-            return new AwardData().GetAwardByLetterName(letterName).ToList();
+            return ProviderDAL.AwardDAO.GetAwardByLetterName(letterName).ToList();
         }
 
         public Award GetByName(string name)
         {
-            return new AwardData().GetAwardByName(name);
+            return ProviderDAL.AwardDAO.GetAwardByName(name);
         }
 
         public IEnumerable<Award> GetByPartName(string partName)
         {
-            return new AwardData().GetAwardByPartName(partName).ToList();
+            return ProviderDAL.AwardDAO.GetAwardByPartName(partName).ToList();
         }
 
         public IEnumerable<Award> GetFreeAwards(int idUser)
         {
-            return new AwardData().GetFreeAwards(idUser).ToList();
+            return ProviderDAL.AwardDAO.GetFreeAwards(idUser).ToList();
         }
 
         public Image GetImageByAward(int idAward, int newWidth, int maxHeight, bool reduceOnly)
         {
-            Image image = new AwardImageData().GetImageByAward(idAward);
+            Image image = ProviderDAL.AwardImageDAO.GetImageByAward(idAward);
             if (image != null)
             {
                 image.Byte = ImageWorker.ResizeImage(image.Byte, newWidth, maxHeight, reduceOnly);
@@ -86,17 +86,17 @@ namespace Awards.CoreLogic
 
         public void SetAwardToUser(int idUser, int idAward)
         {
-            new AwardData().SetAwardToUser(idUser, idAward);
+            ProviderDAL.AwardDAO.SetAwardToUser(idUser, idAward);
         }
 
         public void Update(Award award)
         {
-            new AwardData().UpdateAward(award);
+            ProviderDAL.AwardDAO.UpdateAward(award);
         }
 
         public void UpdateImage(int idAward, Image newImage)
         {
-            new AwardImageData().Update(idAward, newImage);
+            ProviderDAL.AwardImageDAO.Update(idAward, newImage);
         }
     }
 }
