@@ -120,6 +120,7 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AvardController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -136,6 +137,7 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <None Include="packages.config" />
+    <Content Include="Views\Home\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -156,10 +158,6 @@
       <Project>{c60de701-9e9a-4051-9a0f-22907b5509a7}</Project>
       <Name>Awards.LogicContracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DAL\DAL.csproj">
-      <Project>{07adcf31-f0c5-4fd4-92dd-60446992aa26}</Project>
-      <Name>DAL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Entities\Awards.Entities.csproj">
       <Project>{e0c5fe92-41b3-440d-b437-17b2c15de0af}</Project>
       <Name>Awards.Entities</Name>
@@ -167,10 +165,6 @@
     <ProjectReference Include="..\Helpers\Helpers.csproj">
       <Project>{3b168923-133d-41f0-b293-584eda762374}</Project>
       <Name>Helpers</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\IDAL\DAL Contracts.csproj">
-      <Project>{222e1694-a16d-4f4e-b056-231003298fa7}</Project>
-      <Name>DAL Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\NinjectConfigs\NinjectConfigs.csproj">
       <Project>{c56acc57-25ce-4c1f-b3ca-6f7b8b52c472}</Project>

@@ -9,6 +9,9 @@ namespace DAL
 {
     public class SQLDALConfig
     {
-        public static string ConnectionString { get; } = ConfigurationManager.ConnectionStrings["DataAcses"].ConnectionString;
+        static string cs = "Data Source=EPRUSARW0980\\SQLEXPRESS;Initial Catalog=AwardsDB;Integrated Security=True";
+        //public static string ConnectionString { get; } = ConfigurationManager.ConnectionStrings["DataAccess"].ConnectionString;
+        public static string ConnectionString { get; } = cs;
+
     }
 }

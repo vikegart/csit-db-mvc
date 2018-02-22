@@ -31,7 +31,7 @@ namespace Awards.CoreLogic
                 int count = awardsByUser.Count;
                 if (count == 0)
                 {
-                    text.Append("Награды отстутствуют");
+                    text.Append("Наград нет");
                 }
                 else
                 {
