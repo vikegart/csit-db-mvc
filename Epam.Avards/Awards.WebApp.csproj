@@ -44,6 +44,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -113,6 +116,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\AutoMapperConfig.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AvardController.cs" />
@@ -159,6 +163,10 @@
     <ProjectReference Include="..\Entities\Awards.Entities.csproj">
       <Project>{e0c5fe92-41b3-440d-b437-17b2c15de0af}</Project>
       <Name>Awards.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Helpers\Helpers.csproj">
+      <Project>{3b168923-133d-41f0-b293-584eda762374}</Project>
+      <Name>Helpers</Name>
     </ProjectReference>
     <ProjectReference Include="..\IDAL\DAL Contracts.csproj">
       <Project>{222e1694-a16d-4f4e-b056-231003298fa7}</Project>

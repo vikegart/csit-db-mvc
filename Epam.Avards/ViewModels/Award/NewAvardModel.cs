@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Epam.Awards.ViewModels.Award
 {
-    public class NewAvardModel
+    public class NewAwardModel
     {
         [Required(ErrorMessage = "Введите название")]
         [StringLength(50, MinimumLength = 1, ErrorMessage = "Максимальная длина названия 50 символов")]

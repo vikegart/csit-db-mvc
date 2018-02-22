@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace Epam.Avards.ViewModels.User
+namespace Epam.Awards.ViewModels.User
 {
     public class InfoUserModel
     {
