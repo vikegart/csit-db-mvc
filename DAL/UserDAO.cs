@@ -146,10 +146,24 @@ namespace DAL
 
         public IEnumerable<User> GetUsers()
         {
-            using (var con = new SqlConnection(connectString))
+
+            var con = new SqlConnection(connectString);
+            var command = new SqlCommand("SELECT u.id, u.name, u.Birthdate FROM dbo.Users u", con);
+            
+
+            try
             {
-                var command = new SqlCommand("SELECT u.id, u.name, u.Birthdate FROM dbo.Users u", con);
                 con.Open();
+                var reader = command.ExecuteReader();
+            }
+            catch
+            {
+                System.Diagnostics.Debug.Write(connectString);
+            }
+
+            using (con)
+            {
+
                 var reader = command.ExecuteReader();
                 while (reader.Read())
                 {
