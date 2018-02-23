@@ -11,7 +11,7 @@ namespace DAL
     public class SQLDALConfig
     {
         public static string cs = "Data Source=EPRUSARW0980\\SQLEXPRESS;Initial Catalog=AwardsDB;Integrated Security=True";
-        public static string csn = ConfigurationManager.ConnectionStrings["DataAccess"].ConnectionString;
-        public static string ConnectionString { get; } = csn;
+        public static string csn = ConfigurationManager.ConnectionStrings["DataAccess"].ConnectionString; //Err
+        public static string ConnectionString { get; } = cs;
     }
 }
