@@ -177,11 +177,12 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\AwardController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ProviderLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -238,7 +239,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -252,6 +252,20 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Avards.CoreLogic\Awards.CoreLogic.csproj">
+      <Project>{f6a5723f-4918-48f4-81b7-3dd5737f1749}</Project>
+      <Name>Awards.CoreLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Avards.LogicContracts\Awards.LogicContracts.csproj">
+      <Project>{c60de701-9e9a-4051-9a0f-22907b5509a7}</Project>
+      <Name>Awards.LogicContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entities\Awards.Entities.csproj">
+      <Project>{e0c5fe92-41b3-440d-b437-17b2c15de0af}</Project>
+      <Name>Awards.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
