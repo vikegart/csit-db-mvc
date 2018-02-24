@@ -51,6 +51,7 @@
             <div class="cellMiddle">
                 @try
                 {
+                    
                     foreach (var award in user.ListAwars)
                     {
                     <div class="imageAward imageHover" data-title="@award.Title" data-description="@award.Description" href="#myModal" data-toggle="modal">
@@ -60,6 +61,8 @@
                 }
                 catch (Exception ex)
                 {
+                    System.Diagnostics.Debug.WriteLine(user.ID);
+                    System.Diagnostics.Debug.WriteLine(user.ListAwars.Count);
                     break;
                     //throw ex; //если так написать, то он падает
                 }
