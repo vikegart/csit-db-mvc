@@ -224,7 +224,7 @@
     <Content Include="Views\Awards\AddUserToAward.cshtml" />
     <Content Include="Views\Awards\CreateAward.cshtml" />
     <Content Include="Views\Awards\EditAward.cshtml" />
-    <Content Include="Views\Awards\DeleteAward.cshtml" />
+    <Content Include="Views\Awards\DeleteAwards.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
