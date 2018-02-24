@@ -130,7 +130,7 @@ namespace DAL
                     SqlCommand command = con.CreateCommand();
                     command.CommandType = CommandType.StoredProcedure;
                     command.CommandText = "GetAwardByName";
-                    command.Parameters.AddWithValue("name", name);
+                    command.Parameters.AddWithValue("title", name);
                     con.Open();
                     var reader = command.ExecuteReader();
                     if (reader.Read())

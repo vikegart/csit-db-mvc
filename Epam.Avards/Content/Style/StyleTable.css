@@ -1,0 +1,28 @@
+﻿.cellLeft, .cellMiddle, .cellRight {
+    display: table-cell !important;
+    display: inline;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+}
+
+.cellLeft {
+    width: 10%;
+}
+
+.cellRight {
+    width: 35%;
+}
+
+.cellMiddle {
+    width: 13%;
+}
+
+.rTable {
+    display: table;
+    width: 100%;
+}
+
+.rTableRow {
+    display: table-row;
+    width: 100%;
+}

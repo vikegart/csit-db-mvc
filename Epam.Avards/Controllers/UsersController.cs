@@ -54,7 +54,7 @@ namespace Epam.Awards.Controllers
             {
                 user.ListAwars = ProviderLogic.AwardLogic.GetByIdUser(id).ToList();
             }
-            return View(user);
+            return View("InfoUser", user);
         }
         public ActionResult InfoUserByName(string name)
         {
@@ -136,6 +136,7 @@ namespace Epam.Awards.Controllers
         }
         public ActionResult SearchByName(string name)
         {
+            System.Diagnostics.Debug.WriteLine("index from",name);
             IEnumerable<InfoUserModel> users;
             InfoUserModel user = Mapper.Map<InfoUserModel>(ProviderLogic.UserLogic.GetByName(name));
             if (user != null)

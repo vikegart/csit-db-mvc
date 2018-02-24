@@ -1,0 +1,73 @@
+﻿@model Epam.Awards.ViewModels.User.InfoUserModel
+@{
+    ViewBag.Title = "InfoUser";
+}
+@section style{
+    <link href="~/Content/Style/StyleAwardByUser.css" rel="stylesheet" />
+}
+<h3>Информация пользователя</h3>
+<div>
+    @if (Model == null)
+    {
+        <span>Пользователя с таким именем не существует</span>
+    }
+    else
+    {
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Birthdate)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Birthdate)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Age)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Age)
+            </dd>
+            <dt>
+                <h4>Photo</h4>
+            </dt>
+            <dd>
+                <img class="img-rounded imageHover" src="@Url.Action("GetImageByUser", "Image", new { Model.ID, newWidth = 200, maxHeight= 200, reduceOnly = true})" />
+            </dd>
+        </dl>
+        <h4>Личные награды</h4>
+
+        try
+        {
+            foreach (var award in Model.ListAwars)
+            {
+                <div class="blockAward bg-info">
+                    <div class="imageAward bg-info" data-title=@award.Title>
+                        <img class="img-rounded buttonOnclik" src="@Url.Action("GetImageByAward", "Image", new { award.ID, newWidth = 135, maxHeight= 135, reduceOnly = true})" data-href="/award/@award.ID" />
+                    </div>
+                    <div>
+                        <button data-href="@Url.Action("CancelAwardToUser", "Awards", new { idAward = award.ID, idUser = Model.ID })" class="buttonOnclik btn btn-info">Лишить награды</button>
+                    </div>
+                </div>
+
+            }
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+
+
+        <hr />
+        <button data-href="/award-user/@Model.ID" class="buttonOnclik btn btn-success">Наградить</button>
+    }
+</div>
+<br />
+<p>
+    @Html.ActionLink("Вернуться к списку пользователей", "Index")
+</p>

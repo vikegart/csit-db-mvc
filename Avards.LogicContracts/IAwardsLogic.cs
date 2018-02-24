@@ -29,5 +29,7 @@ namespace Awards.LogicContracts
         Image GetImageByAward(int idUser, int newWidth, int maxHeight, bool reduceOnly);
         void DeleteImage(int idUser);
         void UpdateImage(int idAward, Image newImage);
+        IEnumerable<Award> GetByLetterName(string letterName);
+        IEnumerable<Award> GetByPartName(string partName);
     }
 }

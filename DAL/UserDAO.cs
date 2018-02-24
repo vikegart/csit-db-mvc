@@ -84,6 +84,10 @@ namespace DAL
 
         public User GetUserByName(string name)
         {
+
+
+            System.Diagnostics.Debug.WriteLine(name);
+
             try
             {
                 using (var con = new SqlConnection(connectString))

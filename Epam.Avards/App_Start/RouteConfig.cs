@@ -20,18 +20,7 @@ namespace Epam.Avards
               constraints: new { name = @"^[A-Za-z_]+$" }
             );
 
-            routes.MapRoute(
-              name: "GetUsersByLetterName",
-              url: "users/{searchUserByLetterName}",
-              defaults: new { controller = "Users", action = "GetUsersByLetterName" },
-              constraints: new { searchUserByLetterName = @"[A-Za-z]" }
-            );
-            routes.MapRoute(
-               name: "GetUsersByPartName",
-               url: "users/{searchUserByPartName}",
-               defaults: new { controller = "Users", action = "GetUsersByPartName" },
-               constraints: new { searchUserByPartName = @"^[A-Za-z]+$" }
-             );
+            
 
 
             routes.MapRoute(

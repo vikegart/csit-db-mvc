@@ -1,0 +1,11 @@
+﻿body {
+    /*background-image: url('../hello.jpg');*/
+    background-color: aqua;
+    background-position: center top;
+    background-size: 100% auto;
+}
+
+.text-center {
+    display: flex;
+    justify-content: center;
+}

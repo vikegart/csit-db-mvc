@@ -6,18 +6,13 @@
     <title>@ViewBag.Title</title>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
 
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Style/Site.css" rel="stylesheet" type="text/css" />
     @RenderSection("style", required: false)
 </head>
 <body>
     <div class="navbar navbar navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
                 @Html.Raw(Html.BuildBreadcrumbNavigation())
             </div>
             <div class="navbar-collapse collapse">
@@ -30,6 +25,7 @@
     @RenderBody()
     <script src="~/Scripts/jquery-3.0.0.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/HelpScript/Buttons.js"></script>
     @RenderSection("script", required: false)
 </body>
 </html>
