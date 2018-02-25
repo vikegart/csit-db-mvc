@@ -49,25 +49,12 @@
                 @Html.DisplayFor(modelUser => @user.Age)
             </div>
             <div class="cellMiddle">
-                @try
+                @foreach (var award in user.ListAwars)
                 {
-                    
-                    foreach (var award in user.ListAwars)
-                    {
-                    <div class="imageAward imageHover" data-title="@award.Title" data-description="@award.Description" href="#myModal" data-toggle="modal">
-                        <img class="img-rounded" src="@Url.Action("GetImageByAward", "Image", new { award.ID, newWidth = 60, maxHeight= 60, reduceOnly = true})" />
-                    </div>
-                    }
+                <div class="imageAward imageHover" data-title="@award.Title" data-description="@award.Description" href="#myModal" data-toggle="modal">
+                    <img class="img-rounded" src="@Url.Action("GetImageByAward", "Image", new { award.ID, newWidth = 60, maxHeight= 60, reduceOnly = true})" />
+                </div>
                 }
-                catch (Exception ex)
-                {
-                    System.Diagnostics.Debug.WriteLine(user.ID);
-                    System.Diagnostics.Debug.WriteLine(user.ListAwars.Count);
-                    break;
-                    //throw ex; //если так написать, то он падает
-                }
-
-                
             </div>
             <div class="cellRight">
                 <button data-href="user/@user.ID" class="buttonOnclik btn btn-info">Информация</button>

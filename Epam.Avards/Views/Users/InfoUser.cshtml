@@ -41,9 +41,6 @@
             </dd>
         </dl>
         <h4>Личные награды</h4>
-
-        try
-        {
             foreach (var award in Model.ListAwars)
             {
                 <div class="blockAward bg-info">
@@ -56,14 +53,6 @@
                 </div>
 
             }
-        }
-        catch (Exception ex)
-        {
-            return;
-            //throw ex; //если так написать, то он падает
-        }
-
-
         <hr />
         <button data-href="/award-user/@Model.ID" class="buttonOnclik btn btn-success">Наградить</button>
     }

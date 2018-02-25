@@ -115,6 +115,7 @@ namespace Epam.Awards.Controllers
                 foreach (var user in users)
                 {
                     user.ListAwars = ProviderLogic.AwardLogic.GetByIdUser(user.ID).ToList();
+                    
                 }
                 return View("Index", users);
             }
@@ -136,12 +137,11 @@ namespace Epam.Awards.Controllers
         }
         public ActionResult SearchByName(string name)
         {
-            System.Diagnostics.Debug.WriteLine("index from",name);
             IEnumerable<InfoUserModel> users;
             InfoUserModel user = Mapper.Map<InfoUserModel>(ProviderLogic.UserLogic.GetByName(name));
             if (user != null)
             {
-                ViewBag.Awards = ProviderLogic.AwardLogic.GetByIdUser(user.ID);
+                user.ListAwars = ProviderLogic.AwardLogic.GetByIdUser(user.ID).ToList();
                 return View("InfoUser", user);
             }
             if (name.Count() == 1)
@@ -149,13 +149,32 @@ namespace Epam.Awards.Controllers
                 users = Mapper.Map<IEnumerable<InfoUserModel>>(ProviderLogic.UserLogic.GetByLetterName(name));
                 if (users != null)
                 {
-                    return View("Index", users);
+                    List<InfoUserModel> usersWithAward = new List<InfoUserModel>();
+                    foreach (var oneUser in users)
+                    {
+                        var ListAwars = ProviderLogic.AwardLogic.GetByIdUser(oneUser.ID).ToList();
+                        var newUser = Mapper.Map<InfoUserModel>(ProviderLogic.UserLogic.GetById(oneUser.ID));
+                        var model = new InfoUserModel { ID = newUser.ID, Name = newUser.Name, Birthdate = newUser.Birthdate, Age = newUser.Age, ListAwars = ListAwars };
+                        usersWithAward.Add(model);
+
+                    }
+                    return View("Index", usersWithAward);
                 }
             }
             users = Mapper.Map<IEnumerable<InfoUserModel>>(ProviderLogic.UserLogic.GetByPartName(name));
+
             if (users != null)
             {
-                return View("Index", users);
+                List<InfoUserModel> usersWithAward = new List<InfoUserModel>();
+                foreach (var oneUser in users)
+                {
+                    var ListAwars = ProviderLogic.AwardLogic.GetByIdUser(oneUser.ID).ToList();
+                    var newUser = Mapper.Map<InfoUserModel>(ProviderLogic.UserLogic.GetById(oneUser.ID));
+                    var model = new InfoUserModel {ID = newUser.ID, Name = newUser.Name, Birthdate = newUser.Birthdate, Age =  newUser.Age, ListAwars =  ListAwars };
+                    usersWithAward.Add(model);
+
+                }
+                return View("Index", usersWithAward);
             }
             return RedirectToAction("Index");
         }
