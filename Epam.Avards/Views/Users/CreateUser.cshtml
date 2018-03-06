@@ -1,0 +1,47 @@
+﻿@model Epam.Awards.ViewModels.User.NewUserModel
+@{
+    ViewBag.Title = "CreateUser";
+}
+<h3>Создание пользователя</h3>
+@using (Html.BeginForm("CreateUser", "Users", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Birthdate, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.EditorFor(model => model.Birthdate, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                @Html.ValidationMessageFor(model => model.Birthdate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3">Фото(nullable)</label>
+            <div class="col-md-9">
+                <a class='btn btn-primary' href='javascript:;'>
+                    Выберите изображение...
+                    <input type="file" multiple accept="image/*" name="Image" class="loadImage">
+                </a>
+                &nbsp;
+                <span class='label label-info' id="upload-file-info"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-3 col-md-9">
+                <input type="submit" value="Создать" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+<div>
+    @Html.ActionLink("Вернуться обратно", "Index")
+</div>

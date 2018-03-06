@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Epam.Awards.ViewModels.Award.InfoAwardModel>
+@{
+    ViewBag.Title = "Awards";
+}
+@section style{
+    <link href="~/Content/Style/StyleTable.css" rel="stylesheet" />
+}
+<h3 class="text-center">Награды</h3>
+<button data-href="/create-award" class="buttonOnclik btn btn-success">Добавить награду</button>
+<div class="rTable">
+    <div class="rTableRow">
+        <div class="cellLeft">
+            <h4>Изображение</h4>
+        </div>
+        <div class="cellMiddle">
+            <h4>Название</h4>
+        </div>
+        <div class="cellMiddle">
+            <h4>Описание</h4>
+        </div>
+        <div class="cellRight">
+            <h4>Действия</h4>
+        </div>
+    </div>
+    @foreach (var award in Model)
+    {
+        <div class="rTableRow tableRowHover">
+            <div class="cellLeft">
+                <img class="img-rounded imageHover" src="@Url.Action("GetImageByAward", "Image", new { award.ID, newWidth = 150, maxHeight= 150, reduceOnly = true})" />
+            </div>
+            <div class="cellMiddle">
+                @award.Title
+            </div>
+            <div class="cellMiddle">
+                @award.Description
+            </div>
+            <div class="cellRight">
+                <button data-href="/award/@award.ID" class="buttonOnclik btn btn-info">Информация</button>
+                <button data-href="/award/@award.ID/edit" class="buttonOnclik btn btn-success">Редактировать</button>
+                <button data-href="/award/@award.ID/delete" class="buttonOnclik btn btn-danger">Удалить</button>
+            </div>
+        </div>
+    }
+</div>
+<br />
+@using (Html.BeginForm("SearchByName", "Awards", FormMethod.Post))
+{
+    <div class="form-inline">
+        <input id="name" name="name" placeholder="" class="form-control" />
+        <input type="submit" value="Поиск по названию" class="btn btn-info btn-sm" />
+    </div>
+}

@@ -1,0 +1,37 @@
+﻿@model Epam.Awards.ViewModels.User.InfoUserModel
+@{
+    ViewBag.Title = "DeleteUser";
+}
+<h3>Вы действительно хотите удалить данного пользователя?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Birthdate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Birthdate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Age)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+    </dl>
+    @using (Html.BeginForm("DeleteUser", "Users", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-danger" /> |
+            @Html.ActionLink("Вернуться к списку пользователей", "Index")
+        </div>
+    }
+</div>

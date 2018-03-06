@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="~/Content/Style/Site.css" rel="stylesheet" type="text/css" />
+    @RenderSection("style", required: false)
+</head>
+<body>
+    <div class="navbar navbar navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                @Html.Raw(Html.BuildBreadcrumbNavigation())
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav"></ul>
+            </div>
+            <br />
+        </div>
+    </div>
+    <br />
+    @RenderBody()
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/HelpScript/Buttons.js"></script>
+    @RenderSection("script", required: false)
+</body>
+</html>

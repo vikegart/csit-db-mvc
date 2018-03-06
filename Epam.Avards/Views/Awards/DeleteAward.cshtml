@@ -1,0 +1,31 @@
+﻿@model Epam.Awards.ViewModels.Award.InfoAwardModel
+@{
+    ViewBag.Title = "DeleteAward";
+}
+<h3>Вы действительно хотите удалить эту награду?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+    </dl>
+    @using (Html.BeginForm("DeleteAward", "Awards", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-danger" /> |
+            @Html.ActionLink("Вернуться к списку наград", "Index")
+        </div>
+    }
+</div>

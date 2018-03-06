@@ -1,0 +1,7 @@
+﻿body {
+    background-color: gainsboro;
+}
+
+.tableRowHover:hover {
+    background-color: lightgray;
+}

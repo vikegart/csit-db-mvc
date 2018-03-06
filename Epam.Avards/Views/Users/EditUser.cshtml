@@ -1,0 +1,78 @@
+﻿@model Epam.Awards.ViewModels.User.EditUserModel
+@{
+    ViewBag.Title = "EditUser";
+}
+<h3>Редактировать пользователя</h3>
+@using (Html.BeginForm("EditUser", "Users", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Birthdate, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.EditorFor(model => model.Birthdate, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                @Html.ValidationMessageFor(model => model.Birthdate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-3">
+            </div>
+            <img class="img-rounded" src="@Url.Action("GetImageByUser", "Image", new { Model.ID, newWidth = 200, maxHeight= 200, reduceOnly = true})" />
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3">Edit photo</label>
+            <div class="col-md-9">
+                <a class='btn btn-primary' href='javascript:;'>
+                    Выберите изображение...
+                    <input type="file" multiple accept="image/*" name="Image" class="loadImage">
+                </a>
+                &nbsp;
+                <span class='label label-info' id="upload-file-info"></span>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3">Delete photo</label>
+            <div class="col-md-9">
+                <input href="#myModal" data-toggle="modal" type="button" class="btn btn-danger btn-sm " value="Удалить изображение" / >
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-3 col-md-9">
+                <input type="submit" value="Сохранить изменения" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+@* Модальное окно удаления фотографии *@
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Удаление фотографии</h4>
+            </div>
+            <div class="modal-body">
+                Вы уверены что хотите удалить фотографию пользователя @Model.Name ?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Отмена</button>
+                <button type="button" class="buttonOnclik btn btn-danger" data-dismiss="modal" data-href="@Url.Action("DeleteImage", "Users", new { id = Model.ID})">Удаление</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    @Html.ActionLink("Вернуться к списку пользователей", "Index")
+</div>

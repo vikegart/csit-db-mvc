@@ -1,0 +1,38 @@
+﻿@model Epam.Awards.ViewModels.Award.InfoAwardModel
+@{
+    ViewBag.Title = "InfoAward";
+}
+<h3>Информация о награде</h3>
+<div>
+    @if (Model == null)
+    {
+        <span>Награды с таким названием не существует</span>
+    }
+    else
+    {
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+            <dt>
+                <h4>Image</h4>
+            </dt>
+            <dd>
+                <img class="img-rounded imageHover" src="@Url.Action("GetImageByAward", "Image", new { Model.ID, newWidth = 200, maxHeight= 200, reduceOnly = true})" />
+            </dd>
+        </dl>
+    }
+</div>
+<p>
+    @Html.ActionLink("Посмотреть все существующие награды", "Index")
+</p>

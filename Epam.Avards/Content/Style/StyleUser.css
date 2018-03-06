@@ -1,0 +1,7 @@
+﻿body {
+    background-color: cornsilk;
+}
+
+.tableRowHover:hover {
+    background-color: bisque;
+}

@@ -1,0 +1,52 @@
+﻿@model  Epam.Awards.ViewModels.Award.InfoAwardModel
+@{
+    ViewBag.Title = "EditAward";
+}
+<h3>Редактирование награды</h3>
+@using (Html.BeginForm("EditAward", "Awards", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-3">
+            </div>
+            <img class="img-rounded" src="@Url.Action("GetImageByAward", "Image", new { Model.ID, newWidth = 200, maxHeight= 200, reduceOnly = true})" />
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3">Edit image</label>
+            <div class="col-md-9">
+                <a class='btn btn-primary' href='javascript:;'>
+                    Выберите изображение...
+                    <input type="file" multiple accept="image/*" name="Image" class="loadImage">
+                </a>
+                &nbsp;
+                <span class='label label-info' id="upload-file-info"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Сохранить изменения" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+<div>
+    @Html.ActionLink("Вернуться к списку наград", "Index")
+</div>

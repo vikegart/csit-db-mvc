@@ -1,0 +1,15 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section style{
+    <link href="~/Content/Style/StyleUser.css" rel="stylesheet" />
+    @RenderSection("style", required: false)
+}
+<div class="container body-content">
+    @RenderBody()
+    <hr />
+</div>
+@section script
+{
+    @RenderSection("script", required: false)
+}

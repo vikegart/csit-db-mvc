@@ -1,0 +1,37 @@
+﻿.blockAward {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+}
+
+.imageAward {
+    display: inline-block;
+    position: relative;
+}
+
+    .imageAward:hover::after {
+        content: attr(data-title);
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 5px;
+        z-index: 1;
+        background: rgba(139, 233, 242, 0.5);
+        color: rgb(0, 0, 0);
+        text-align: center;
+        font-family: Arial, sans-serif;
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+
+.modalwindow {
+    display: none;
+    position: absolute;
+    z-index: 100;
+    background: #eee;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px #000000;
+    right: 2%;
+    top: 30%;
+}

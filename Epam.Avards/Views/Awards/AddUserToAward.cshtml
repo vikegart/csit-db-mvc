@@ -1,0 +1,41 @@
+﻿@model  IEnumerable<Epam.Awards.ViewModels.Award.InfoAwardModel>
+@{
+    ViewBag.Title = "AddUserToAward";
+}
+@section style{
+    <link href="~/Content/Style/StyleTable.css" rel="stylesheet" />
+}
+<h3>Награждение пользователя @ViewBag.User.Name</h3>
+<div class="rTable">
+    <div class="rTableRow">
+        <div class="cellLeft">
+            <h4>Изображение</h4>
+        </div>
+        <div class="cellMiddle">
+            <h4>Название</h4>
+        </div>
+        <div class="cellMiddle">
+            <h4>Описание</h4>
+        </div>
+        <div class="cellRight">
+            <h4>Награждение</h4>
+        </div>
+    </div>
+    @foreach (var award in Model)
+    {
+        <div class="rTableRow">
+            <div class="cellLeft">
+                <img class="img-rounded" src="@Url.Action("GetImageByAward", "Image", new { award.ID, newWidth = 100, maxHeight= 100, reduceOnly = true})" />
+            </div>
+            <div class="cellMiddle">
+                @award.Title
+            </div>
+            <div class="cellMiddle">
+                @award.Description
+            </div>
+            <div class="cellRight">
+                <button data-href="@Url.Action("SetUserToAward", "Awards", new { idAward = award.ID, idUser =  ViewBag.User.ID})" class="buttonOnclik btn btn-success">Наградить</button>
+            </div>
+        </div>
+    }
+</div>

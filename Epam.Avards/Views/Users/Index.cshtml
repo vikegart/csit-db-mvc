@@ -1,0 +1,98 @@
+﻿@model IEnumerable<Epam.Awards.ViewModels.User.InfoUserModel>
+@{
+    ViewBag.Title = "Users";
+}
+@section style{
+    <link href="~/Content/Style/StyleTable.css" rel="stylesheet" />
+    <link href="~/Content/Style/StyleAwardByUser.css" rel="stylesheet" />
+}
+@section script
+{
+    <script src="~/scripts/HelpScript/modalAward.js"></script>
+}
+<h3 class="text-center">Пользователи</h3>
+<button data-href="/create-user" class="btn btn-success buttonOnclik">Добавить пользователя</button>
+<div class="rTable">
+    <div class="rTableRow">
+        <div class="cellLeft">
+            <h4>Фото</h4>
+        </div>
+        <div class="cellMiddle">
+            <h4>Имя</h4>
+        </div>
+        <div class="cellMiddle">
+            <h4>Дата рождения</h4>
+        </div>
+        <div class="cellMiddle">
+            <h4>Возраст</h4>
+        </div>
+        <div class="cellMiddle">
+            <h4>Награды</h4>
+        </div>
+        <div class="cellRight">
+            <h4>Действия</h4>
+        </div>
+    </div>
+    @foreach (var user in Model)
+    {
+        <div class="rTableRow tableRowHover">
+            <div class="cellLeft">
+                <img class="img-rounded imageHover buttonOnclik" src="@Url.Action("GetImageByUser", "Image", new { user.ID, newWidth = 150, maxHeight= 150, reduceOnly = true})" data-href="user/@user.ID" />
+            </div>
+            <div class="cellMiddle">
+                @Html.DisplayFor(modelUser => @user.Name)
+            </div>
+            <div class="cellMiddle">
+                @Html.DisplayFor(modelUser => user.Birthdate)
+            </div>
+            <div class="cellMiddle">
+                @Html.DisplayFor(modelUser => @user.Age)
+            </div>
+            <div class="cellMiddle">
+                @foreach (var award in user.ListAwars)
+                {
+                <div class="imageAward imageHover" data-title="@award.Title" data-description="@award.Description" href="#myModal" data-toggle="modal">
+                    <img class="img-rounded" src="@Url.Action("GetImageByAward", "Image", new { award.ID, newWidth = 60, maxHeight= 60, reduceOnly = true})" />
+                </div>
+                }
+            </div>
+            <div class="cellRight">
+                <button data-href="user/@user.ID" class="buttonOnclik btn btn-info">Информация</button>
+                <button data-href="user/@user.ID/edit" class="buttonOnclik btn btn-success">Редактировать</button>
+                <button data-href="user/@user.ID/delete" class="buttonOnclik btn btn-danger">Удалить</button>
+            </div>
+        </div>
+    }
+</div>
+<br />
+@using (Html.BeginForm("SearchByName", "Users", FormMethod.Post))
+{
+    <div class="form-inline">
+        <input id="name" name="name" placeholder="" class="form-control" />
+        <input type="submit" value="Поиск по имени" class="btn btn-info btn-sm" />
+    </div>
+}
+
+@* Модалка *@
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Информация о награде</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-inline">
+                    <span>Название: </span>
+                    <span id="titleAward"></span>
+                </div>
+                <div class="form-inline">
+                    <span>Описание: </span>
+                    <span id="descriptionAward"></span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
+    </div>
+</div>
